@@ -6,16 +6,17 @@
 #    By: jhamon <jhamon@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/03/08 14:53:08 by jhamon            #+#    #+#              #
-#    Updated: 2018/03/26 15:15:42 by jhamon           ###   ########.fr        #
+#    Updated: 2018/03/27 19:09:56 by jhamon           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = jhamon.filler
+NAME = jhamon.filler 
 
+AUTEUR = jhamon
 CC = gcc
 FLAG = -Wall -Werror -Wextra
 OBJ = $(SRC:.c=.o)
-SRC = main.c
+SRC = main.c ft_parseur.c ft_rec_tb.c
 LIB = -L libft -lft
 INC = -I libft/
 
@@ -32,7 +33,6 @@ define FOK
 	@tput setaf 50
 	@echo -n $(NAME)
 	@tput setaf 10
-	@tput blink 10
 	@echo ' [Compiled]'
 	@tput sgr0
 endef
@@ -45,10 +45,19 @@ define LOK
 	@tput sgr0
 endef
 
+define OTR
+	@echo -n ''
+	@tput setaf 92
+	@echo -n 'auteur : '
+	@tput setaf 160
+	@echo $(AUTEUR)
+	@tput sgr0
+endef
+
 all : $(NAME)
 	@:
 
-$(NAME) : $(OBJ)
+$(NAME) : $(OBJ) auteur
 	@make -C libft SLEEP=1
 ifndef SLEEP
 	$(call LOK)
@@ -75,7 +84,7 @@ clean :
 
 fclean : clean
 	@make -C libft fclean
-	@rm -rf $(NAME)
+	@rm -rf $(NAME) $(OTR)
 	@tput setaf 50
 	@echo -n $(NAME)
 	@tput setaf 10
@@ -94,4 +103,12 @@ force : $(OBJ)
 	@$(CC) -o $(NAME) $(SRC) $(LIB)
 	$(call FOK, $*)
 
-.PHONY : all clean fclean re force silence
+auteur :
+	@touch $@
+	@echo $(AUTEUR) > $@
+ifndef SLEEP
+	$(call OTR, $(AUTEUR))
+endif
+
+
+.PHONY : all clean fclean re force silence otr
