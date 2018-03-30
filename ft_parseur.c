@@ -6,30 +6,39 @@
 /*   By: jhamon <jhamon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/27 14:42:59 by jhamon            #+#    #+#             */
-/*   Updated: 2018/03/27 17:39:44 by jhamon           ###   ########.fr       */
+/*   Updated: 2018/03/30 01:36:00 by jhamon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "filler.h"
 
-static void		ft_pars_tab(t_filler *p)
+void		ft_free_tb(char **tb)
+{
+	int i;
+
+	i = 0;
+	while (tb[i])
+		ft_memdel((void *)&tb[i++]);
+	ft_memdel((void *)&tb[i]);
+}
+
+static void		ft_pars_map(t_filler *p)
 {
 	int i;
 
 	i = p->y_map;
-	if (!(p->tb_map = (char**)malloc(sizeof(char*)*p->y_map + 1)))
+	if (!(p->tb_map = (char**)malloc(sizeof(char*)*(p->y_map + 1))))
 		exit(ERROR_P);
 	p->tb_map[i] = NULL;
 	while (--i != 0)
 	{
-		if (!(p->tb_map[i] = (char*)malloc(sizeof(char)*p->x_map + 1)))
+		if (!(p->tb_map[i] = (char*)malloc(sizeof(char)*(p->x_map + 1))))
 			exit(ERROR_P);
 		p->tb_map[i][p->x_map] = '\0';
 	}
-	if (!(p->tb_map[i] = (char*)malloc(sizeof(char)*p->x_map + 1)))
+	if (!(p->tb_map[i] = (char*)malloc(sizeof(char)*(p->x_map + 1))))
 		exit(ERROR_P);
 	p->tb_map[i][p->x_map] = '\0';
-	p->rec = 1;
 }
 
 static void		ft_pars_pce(char *line, t_filler *p)
@@ -42,17 +51,17 @@ static void		ft_pars_pce(char *line, t_filler *p)
 		exit(ERROR_P);
 	i = p->y_pce;
 	if (p->tb_pce)
-		free(p->tb_pce);
-	if (!(p->tb_pce = (char**)malloc(sizeof(char*)*p->y_pce + 1)))
+	 	ft_free_tb(p->tb_pce);
+	if (!(p->tb_pce = (char**)malloc(sizeof(char*)*(p->y_pce + 1))))
 		exit(ERROR_P);
 	p->tb_pce[i] = NULL;
 	while (--i != 0)
 	{
-		if (!(p->tb_pce[i] = (char*)malloc(sizeof(char)*p->x_pce + 1)))
+		if (!(p->tb_pce[i] = (char*)malloc(sizeof(char)*(p->x_pce + 1))))
 			exit(ERROR_P);
 		p->tb_pce[i][p->x_pce] = '\0';
 	}
-	if (!(p->tb_pce[i] = (char*)malloc(sizeof(char)*p->x_pce + 1)))
+	if (!(p->tb_pce[i] = (char*)malloc(sizeof(char)*(p->x_pce + 1))))
 		exit(ERROR_P);
 	p->tb_pce[i][p->x_pce] = '\0';
 	p->rec = 2;
@@ -60,9 +69,7 @@ static void		ft_pars_pce(char *line, t_filler *p)
 
 void			ft_parseur(char *line, t_filler *p)
 {
-	static int vue;
-
-	if (vue == 0)
+	if (p->vue_prs == 0)
 	{
 		if (ft_strnequ("Plateau", line, 7))
 		{
@@ -70,8 +77,8 @@ void			ft_parseur(char *line, t_filler *p)
 			p->x_map = ft_atoi(ft_strchr(line + 8, ' ')); 
 			if (p->x_map <= 0 || p->y_map <= 0)
 				exit(ERROR_M);
-			ft_pars_tab(p);
-			vue++;
+			ft_pars_map(p);
+			p->vue_prs++;
 		}
 		else if (ft_strnequ("$$$ exec p1", line, 11))
 			p->ply = 'O';
@@ -80,9 +87,9 @@ void			ft_parseur(char *line, t_filler *p)
 	}
 	else
 	{
-		if (ft_strnequ("Plateau", line, 7))
+		if (ft_strnequ("    ", line, 4))
 			p->rec = 1;
-		if (ft_strnequ("Piece", line, 5))
+		else if (ft_strnequ("Piece", line, 5))
 			ft_pars_pce(line, p);
 	}
 }

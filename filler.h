@@ -6,7 +6,7 @@
 /*   By: jhamon <jhamon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/27 12:07:36 by jhamon            #+#    #+#             */
-/*   Updated: 2018/03/27 17:39:50 by jhamon           ###   ########.fr       */
+/*   Updated: 2018/03/30 22:25:45 by jhamon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,18 +25,33 @@ typedef struct	s_filler
 	char		**tb_pce;
 	int			y_ply;
 	int			x_ply;
+	int			y_ink;
+	int			x_ink;
 	int			rec;
 	int			prs;
 	int			y_map;
 	int			x_map;
 	int			y_pce;
 	int			x_pce;
+	int			y_ini;
+	int			x_ini;
 	int			finish;
+	int			vue_prs;
+	int			tour;
+	int			ink_i;
+	int			phase;
+	FILE		*fd_trace;
+	FILE		*fd_vm;
 }				t_filler;
 
 
 void			ft_parseur(char *line, t_filler *p);
-void			ft_rec_tb(char *line, t_filler *p, int la);
-
+void			ft_rec_tb(char *line, t_filler *p);
+void			ft_rsv_flr(t_filler *p);
+void			ft_free_tb(char **tb);
+void			ft_chr_ink(t_filler *p);
+int				ft_vrf_plc(t_filler *p);
+void 			ft_iter_ink(t_filler *p);
+void			ft_hercul(t_filler *p, int y, int x);
 
 #endif

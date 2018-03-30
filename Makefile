@@ -6,7 +6,7 @@
 #    By: jhamon <jhamon@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/03/08 14:53:08 by jhamon            #+#    #+#              #
-#    Updated: 2018/03/27 19:09:56 by jhamon           ###   ########.fr        #
+#    Updated: 2018/03/30 22:25:59 by jhamon           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,8 +15,9 @@ NAME = jhamon.filler
 AUTEUR = jhamon
 CC = gcc
 FLAG = -Wall -Werror -Wextra
+G3 = -fsanitize=address -g3
 OBJ = $(SRC:.c=.o)
-SRC = main.c ft_parseur.c ft_rec_tb.c
+SRC = main.c ft_hercul.c ft_parseur.c ft_rec_tb.c ft_vrf_plc.c ft_rsv_flr.c ft_chr_ink.c ft_iter_ink.c
 LIB = -L libft -lft
 INC = -I libft/
 
@@ -96,12 +97,15 @@ re : fclean all
 silence :
 	@make SLEEP=1
 
-force : $(OBJ)
-	@make -C libft force SLEEP=1
+force :
+	@make -C libft force
 	$(call LOK)
-	$(call MLXOK)
 	@$(CC) -o $(NAME) $(SRC) $(LIB)
 	$(call FOK, $*)
+
+debug : $(OBJ)
+	@$(CC) -o $(NAME) $(SRC) $(LIB) $(G3)
+
 
 auteur :
 	@touch $@
