@@ -6,7 +6,7 @@
 /*   By: jhamon <jhamon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/29 11:39:04 by jhamon            #+#    #+#             */
-/*   Updated: 2018/03/30 20:55:16 by jhamon           ###   ########.fr       */
+/*   Updated: 2018/03/31 19:11:27 by jhamon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,8 @@
 
 void			ft_rsv_flr(t_filler *p)
 {
-	/*
-	** je veux dabort placer un point calculer par mon algo 
-	** (redecouter la piece) ou pas 
-	** en suit je regarde ou je peux poser mon point (recursive ?)
-	** regarder les point le plus procher ou je peux la pose  
-	*/
 	ft_chr_ink(p);
+	ft_hercul(p);
 	int a;
 	a = 1;
 	fprintf(p->fd_trace, "\n");

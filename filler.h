@@ -6,7 +6,7 @@
 /*   By: jhamon <jhamon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/27 12:07:36 by jhamon            #+#    #+#             */
-/*   Updated: 2018/03/30 22:25:45 by jhamon           ###   ########.fr       */
+/*   Updated: 2018/03/31 18:10:44 by jhamon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,10 @@ typedef struct	s_filler
 	int			x_map;
 	int			y_pce;
 	int			x_pce;
-	int			y_ini;
-	int			x_ini;
+	int			y_ini_en;
+	int			x_ini_en;
+	int			y_ini_me;
+	int			x_ini_me;
 	int			finish;
 	int			vue_prs;
 	int			tour;
@@ -52,6 +54,6 @@ void			ft_free_tb(char **tb);
 void			ft_chr_ink(t_filler *p);
 int				ft_vrf_plc(t_filler *p);
 void 			ft_iter_ink(t_filler *p);
-void			ft_hercul(t_filler *p, int y, int x);
+void			ft_hercul(t_filler *p);
 
 #endif

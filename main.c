@@ -6,7 +6,7 @@
 /*   By: jhamon <jhamon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/08 14:53:08 by jhamon            #+#    #+#             */
-/*   Updated: 2018/03/30 22:26:28 by jhamon           ###   ########.fr       */
+/*   Updated: 2018/03/31 19:12:11 by jhamon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ int				main(void)
 			ft_parseur(line, p);
 		if (p->rec == 3)
 		{
-			usleep(15000);
+			usleep(75000);
 			fprintf(p->fd_trace, "\n------------------------\n------------------------\n");
 			ft_rsv_flr(p);
 			fprintf(p->fd_trace, "player : %c Tableau : %d %d\n", \

@@ -6,11 +6,31 @@
 /*   By: jhamon <jhamon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/27 16:30:03 by jhamon            #+#    #+#             */
-/*   Updated: 2018/03/30 21:07:29 by jhamon           ###   ########.fr       */
+/*   Updated: 2018/03/31 18:11:32 by jhamon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "filler.h"
+
+static void	ft_psyko(t_filler *p, int y, int x, char line)
+{
+	static int i;
+	static int j;
+
+	if (i == 0 && line == p->ply)
+	{
+		p->y_ini_me = y;
+		p->x_ini_me = x;
+		i++;
+	}
+	if (j == 0 && line != p->ply)
+	{
+		p->y_ini_en = y;
+		p->x_ini_en = x;
+		j++;
+	}
+	
+}
 
 static void		ft_pce_rec(char *line, t_filler *p, int i_pce)
 {
@@ -43,8 +63,8 @@ static void		ft_map_rec(char *line, t_filler *p, int i_map)
 	{
 		if (line[i])
 			p->tb_map[i_map][j++] = line[i];
-		if (line[i] == p->ply)
-			ft_hercul(p, i_map, j);
+		if (line[i] != '.')
+			ft_psyko(p, i_map, j, line[i]);
 	}
 }
 
