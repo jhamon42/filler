@@ -6,7 +6,7 @@
 #    By: jhamon <jhamon@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/03/08 14:53:08 by jhamon            #+#    #+#              #
-#    Updated: 2018/03/30 22:25:59 by jhamon           ###   ########.fr        #
+#    Updated: 2018/04/06 06:06:05 by jhamon           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ CC = gcc
 FLAG = -Wall -Werror -Wextra
 G3 = -fsanitize=address -g3
 OBJ = $(SRC:.c=.o)
-SRC = main.c ft_hercul.c ft_parseur.c ft_rec_tb.c ft_vrf_plc.c ft_rsv_flr.c ft_chr_ink.c ft_iter_ink.c
+SRC = main.c ft_cas_prt.c ft_hercul.c ft_parseur.c ft_rec_tb.c ft_vrf_plc.c ft_rsv_flr.c ft_chr_ink.c ft_iter_ink.c
 LIB = -L libft -lft
 INC = -I libft/
 

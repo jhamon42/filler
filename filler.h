@@ -6,7 +6,7 @@
 /*   By: jhamon <jhamon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/27 12:07:36 by jhamon            #+#    #+#             */
-/*   Updated: 2018/03/31 18:10:44 by jhamon           ###   ########.fr       */
+/*   Updated: 2018/04/06 06:06:14 by jhamon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 
 # include "libft/libft.h"
 
-# define ERROR_P ft_printf("piece invalide")
-# define ERROR_M ft_printf("map invalide")
+# define ERROR_P ft_printf("{red}ERROR PCE : piece invalide{eoc}")
+# define ERROR_M ft_printf("{rec}ERROR MAP : map invalide{eoc}")
 
 typedef struct	s_filler
 {
@@ -55,5 +55,6 @@ void			ft_chr_ink(t_filler *p);
 int				ft_vrf_plc(t_filler *p);
 void 			ft_iter_ink(t_filler *p);
 void			ft_hercul(t_filler *p);
+int				ft_cas_prt(t_filler *p, char c);
 
 #endif

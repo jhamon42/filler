@@ -6,7 +6,7 @@
 /*   By: jhamon <jhamon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/30 02:33:53 by jhamon            #+#    #+#             */
-/*   Updated: 2018/03/30 20:55:38 by jhamon           ###   ########.fr       */
+/*   Updated: 2018/04/05 03:17:31 by jhamon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,24 +23,24 @@ static void 	ft_iter_ttt(t_filler *p, int y, int x, int i)
 {
 	if (i == 4)
 	{
-		p->x_ply = p->x_ink + x; 
+		p->x_ply = p->x_ink + x;
 		p->y_ply = p->y_ink - y;
 	}
 	if (i == 5)
 	{
-		p->x_ply = p->x_ink + y; 
+		p->x_ply = p->x_ink + y;
 		p->y_ply = p->y_ink - x;
 	}
 	if (i == 6)
 	{
-		p->x_ply = p->x_ink - x; 
+		p->x_ply = p->x_ink - x;
 		p->y_ply = p->y_ink - y;
 	}
 	if (i == 7)
 	{
-		p->x_ply = p->x_ink - y; 
+		p->x_ply = p->x_ink - y;
 		p->y_ply = p->y_ink - x;
-	}	
+	}
 }
 
 static void 	ft_iter_rrr(t_filler *p, int y, int x, int i)
@@ -49,22 +49,22 @@ static void 	ft_iter_rrr(t_filler *p, int y, int x, int i)
 	{
 		if (i == 0)
 		{
-			p->x_ply = p->x_ink + x; 
+			p->x_ply = p->x_ink + x;
 			p->y_ply = p->y_ink + y;
 		}
 		if (i == 1)
 		{
-			p->x_ply = p->x_ink + y; 
+			p->x_ply = p->x_ink + y;
 			p->y_ply = p->y_ink + x;
 		}
 		if (i == 2)
 		{
-			p->x_ply = p->x_ink - x; 
+			p->x_ply = p->x_ink - x;
 			p->y_ply = p->y_ink + y;
 		}
 		if (i == 3)
 		{
-			p->x_ply = p->x_ink - y; 
+			p->x_ply = p->x_ink - y;
 			p->y_ply = p->y_ink + x;
 		}
 	}

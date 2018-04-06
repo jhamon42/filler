@@ -6,7 +6,7 @@
 /*   By: jhamon <jhamon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/29 11:39:04 by jhamon            #+#    #+#             */
-/*   Updated: 2018/03/31 19:11:27 by jhamon           ###   ########.fr       */
+/*   Updated: 2018/04/06 06:27:23 by jhamon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,9 @@
 
 void			ft_rsv_flr(t_filler *p)
 {
-	ft_chr_ink(p);
 	ft_hercul(p);
+	fprintf(p->fd_trace, "phase : %d ink_x: %d ink_y: %d\n", p->phase, p->x_ink, p->y_ink);
+	ft_chr_ink(p);
 	int a;
 	a = 1;
 	fprintf(p->fd_trace, "\n");

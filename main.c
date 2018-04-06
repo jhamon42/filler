@@ -6,7 +6,7 @@
 /*   By: jhamon <jhamon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/08 14:53:08 by jhamon            #+#    #+#             */
-/*   Updated: 2018/03/31 19:12:11 by jhamon           ###   ########.fr       */
+/*   Updated: 2018/04/06 06:23:20 by jhamon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ static void		s_filler_init(t_filler *p)
 	p->x_pce = 0;
 	p->finish = 0;
 	p->vue_prs = 0;
-	p->phase = 0;
+	p->phase = 1;
 	p->tb_map = NULL;
 	p->tb_pce = NULL;
 }
@@ -84,6 +84,7 @@ int				main(void)
 			fprintf(p->fd_trace, "player : %c Tableau : %d %d\n", \
 			p->ply, p->y_map, p->x_map);
 			fprintf(p->fd_trace, "piece : %d %d\n", p->y_pce, p->x_pce);
+			fprintf(p->fd_trace, "phase : %d\n", p->phase);
 			print_t(p, p->fd_trace);
 			p->vue_prs = 0;
 			p->rec = 0;

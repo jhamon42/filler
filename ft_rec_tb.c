@@ -6,7 +6,7 @@
 /*   By: jhamon <jhamon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/27 16:30:03 by jhamon            #+#    #+#             */
-/*   Updated: 2018/03/31 18:11:32 by jhamon           ###   ########.fr       */
+/*   Updated: 2018/04/06 06:11:15 by jhamon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ static void	ft_psyko(t_filler *p, int y, int x, char line)
 		p->x_ini_en = x;
 		j++;
 	}
-	
 }
 
 static void		ft_pce_rec(char *line, t_filler *p, int i_pce)
@@ -47,7 +46,6 @@ static void		ft_pce_rec(char *line, t_filler *p, int i_pce)
 				p->tb_pce[i_pce][i] = line[i];
 		}
 	}
-	
 }
 
 static void		ft_map_rec(char *line, t_filler *p, int i_map)
