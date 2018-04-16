@@ -6,7 +6,7 @@
 /*   By: jhamon <jhamon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/08 14:53:08 by jhamon            #+#    #+#             */
-/*   Updated: 2018/04/06 06:23:20 by jhamon           ###   ########.fr       */
+/*   Updated: 2018/04/09 19:50:38 by jhamon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ static void		s_filler_init(t_filler *p)
 	p->x_pce = 0;
 	p->finish = 0;
 	p->vue_prs = 0;
-	p->phase = 1;
+	p->phase = 0;
 	p->tb_map = NULL;
 	p->tb_pce = NULL;
 }
@@ -78,7 +78,7 @@ int				main(void)
 			ft_parseur(line, p);
 		if (p->rec == 3)
 		{
-			usleep(75000);
+			//usleep(75000);
 			fprintf(p->fd_trace, "\n------------------------\n------------------------\n");
 			ft_rsv_flr(p);
 			fprintf(p->fd_trace, "player : %c Tableau : %d %d\n", \
