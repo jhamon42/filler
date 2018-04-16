@@ -14,13 +14,13 @@
 
 int		ft_cas_prt(t_filler *p, char c)
 {
-	if (p->x_ink == p->x_map && p->y_ink == 0)
+	if (p->x_ink + 1 == p->x_map && p->y_ink == 0)
 	{
 		if (p->tb_map[p->y_ink + 1][p->x_ink] == c)
 			if (p->tb_map[p->y_ink][p->x_ink - 1] == c)
 				return (1);
 	}
-	else if (p->y_ink == p->y_map && p->x_ink == 0)
+	else if (p->y_ink + 1 == p->y_map && p->x_ink == 0)
 	{
 		if (p->tb_map[p->y_ink - 1][p->x_ink] == c)
 			if (p->tb_map[p->y_ink][p->x_ink + 1] == c)

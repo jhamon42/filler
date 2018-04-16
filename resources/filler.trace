@@ -1,6 +1,13 @@
+<<<<<<< HEAD
 seed = 813
 O: error on input
 ../jhamon.filler: Segfault at 36
 players/carli.filler won
 Score:
 36AGAINST260
+=======
+seed = 1389
+players/carli.filler won
+Score:
+190AGAINST150
+>>>>>>> 500803856512f863eef42a3c0279a1511c4d2281
