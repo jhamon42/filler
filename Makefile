@@ -6,11 +6,11 @@
 #    By: jhamon <jhamon@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/03/08 14:53:08 by jhamon            #+#    #+#              #
-#    Updated: 2018/04/06 06:06:05 by jhamon           ###   ########.fr        #
+#    Updated: 2018/04/16 16:51:07 by jhamon           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = jhamon.filler 
+NAME = jhamon.filler
 
 AUTEUR = jhamon
 CC = gcc
