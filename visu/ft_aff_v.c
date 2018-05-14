@@ -6,7 +6,7 @@
 /*   By: jhamon <jhamon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/09 17:26:06 by jhamon            #+#    #+#             */
-/*   Updated: 2018/05/14 14:39:18 by jhamon           ###   ########.fr       */
+/*   Updated: 2018/05/14 16:29:20 by jhamon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,13 @@ int				my_keys_events(int key, t_visu *p)
 		fclose(p->fd);
 		exit(0);
 	}
+	if (key == 49)
+	{
+		if (p->pause == 0)
+			p->pause = 1;
+		else if (p->pause == 1)
+			p->pause = 0;
+	}
 	return (0);
 }
 
@@ -82,23 +89,22 @@ void ft_aff_v(t_visu *p)
 	int j;
 
 	i = -1;
-	//usleep(5000);
+	usleep(5000);
 	while (++i < p->y_map)
 	{
 		j = -1;
 		while (++j < p->x_map)
 		{
 			if (p->tb_map[i][j] == 'O')
-				ds_moi_mout(p, (2 + p->var_x) * j + 2, (2 + p->var_y) * i + 2, 0xFF00FF);
+				ds_moi_mout(p, (2 + p->var_x) * j + 2, (2 + p->var_y) * i + 2, 0x5FD813);
 			else if (p->tb_map[i][j] == 'X')
-				ds_moi_mout(p, (2 + p->var_x) * j + 2, (2 + p->var_y) * i + 2, 0x00ffff);
+				ds_moi_mout(p, (2 + p->var_x) * j + 2, (2 + p->var_y) * i + 2, 0x8C13D8);
 			else if (p->tb_map[i][j] == 'o')
-				ds_moi_mout(p, (2 + p->var_x) * j + 2, (2 + p->var_y) * i + 2, 0x500050);
+				ds_moi_mout(p, (2 + p->var_x) * j + 2, (2 + p->var_y) * i + 2, 0xB7FF8A);
 			else if (p->tb_map[i][j] == 'x')
-				ds_moi_mout(p, (2 + p->var_x) * j + 2, (2 + p->var_y) * i + 2, 0x005050);
+				ds_moi_mout(p, (2 + p->var_x) * j + 2, (2 + p->var_y) * i + 2, 0xD28AFF);
 		}
 	}
 	print_tab(p->fd, p);
 	fprintf(p->fd, "x_map ; %d, y_map : %d, var_x : %d, var_y : %d\n", p->x_map, p->y_map, p->var_x, p->var_y);
-	//ds_moi_mout(p, 10, 10, 0xFFFFFF);
 }

@@ -6,7 +6,7 @@
 /*   By: jhamon <jhamon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/09 15:04:30 by jhamon            #+#    #+#             */
-/*   Updated: 2018/05/13 20:06:18 by jhamon           ###   ########.fr       */
+/*   Updated: 2018/05/14 16:14:59 by jhamon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,9 +57,12 @@ int			loophere(t_visu *p)
 	p->img = mlx_new_image(p->mlx, p->defwin_x, p->defwin_y);
 	p->data = (unsigned char *)mlx_get_data_addr(p->img, \
 		&p->bpp, &p->sline, &p->endian);
-	ft_rec_v(p);
-	ft_aff_v(p);
-	mlx_put_image_to_window(p->mlx, p->win, p->img, 0, 0);
+	if (!p->pause)
+	{
+		ft_rec_v(p);
+		ft_aff_v(p);
+		mlx_put_image_to_window(p->mlx, p->win, p->img, 0, 0);
+	}
 	return (0);
 }
 

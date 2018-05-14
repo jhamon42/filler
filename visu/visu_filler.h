@@ -6,14 +6,14 @@
 /*   By: jhamon <jhamon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/09 15:28:24 by jhamon            #+#    #+#             */
-/*   Updated: 2018/05/14 14:03:23 by jhamon           ###   ########.fr       */
+/*   Updated: 2018/05/14 16:04:24 by jhamon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef VISU_FILLER_H
 # define VISU_FILLER_H
 
-# include "libft/libft.h"
+# include "../libft/libft.h"
 # include "minilibx_macos/mlx.h"
 # include <stdlib.h>
 # include <stdio.h>
@@ -40,6 +40,7 @@ typedef struct		s_visu
 	int				var_y;
 	int				defwin_y;
 	int				defwin_x;
+	int				pause;
 	FILE 			*fd;
 } 					t_visu;
 

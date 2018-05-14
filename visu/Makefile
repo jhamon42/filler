@@ -6,7 +6,7 @@
 #    By: jhamon <jhamon@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/03/08 14:53:08 by jhamon            #+#    #+#              #
-#    Updated: 2018/05/11 18:17:39 by jhamon           ###   ########.fr        #
+#    Updated: 2018/05/14 18:38:42 by jhamon           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,8 +18,8 @@ FLAG = -Wall -Werror -Wextra
 G3 = -fsanitize=address -g3
 OBJ = $(SRC:.c=.o)
 SRC = main.c ft_aff_v.c ft_prsr_v.c ft_rec_v.c
-LIB = -L minilibx_macos -lmlx -framework OpenGL -framework appKit -L libft -lft
-INC = -I libft/
+LIB = -L minilibx_macos -lmlx -framework OpenGL -framework appKit -L ../libft -lft
+INC = -I ../libft/
 
 define OK
 	@tput setaf 254
@@ -67,7 +67,7 @@ all : $(NAME)
 	@:
 
 $(NAME) : $(OBJ) auteur
-	@make -C libft SLEEP=1
+	@make -C ../libft SLEEP=1
 	@make -C minilibx_macos
 ifndef SLEEP
 	$(call LOK)
@@ -85,7 +85,7 @@ ifndef SLEEP
 endif
 
 clean :
-	@make -C libft clean
+	@make -C ../libft clean
 	@rm -rf $(OBJ)
 	@tput setaf 50
 	@echo -n 'Obj_fdf'
@@ -94,7 +94,7 @@ clean :
 	@tput sgr0
 
 fclean : clean
-	@make -C libft fclean
+	@make -C ../libft fclean
 	@rm -rf $(NAME) $(OTR)
 	@tput setaf 50
 	@echo -n $(NAME)
@@ -108,7 +108,7 @@ silence :
 	@make SLEEP=1
 
 force :
-	@make -C libft force
+	@make -C ../libft force
 	$(call LOK)
 	@$(CC) -o $(NAME) $(SRC) $(LIB)
 	$(call FOK, $*)
