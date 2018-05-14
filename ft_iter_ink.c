@@ -6,20 +6,20 @@
 /*   By: jhamon <jhamon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/30 02:33:53 by jhamon            #+#    #+#             */
-/*   Updated: 2018/04/05 03:17:31 by jhamon           ###   ########.fr       */
+/*   Updated: 2018/05/06 14:33:57 by jhamon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "filler.h"
 
-static void		ft_init_yxd(int *x, int *y, int *d, int tour)
+static	void	ft_init_yxd(int *x, int *y, int *d, int tour)
 {
 	*x = 0;
 	*y = tour;
 	*d = tour - 1;
 }
 
-static void 	ft_iter_ttt(t_filler *p, int y, int x, int i)
+static	void	ft_iter_ttt(t_filler *p, int y, int x, int i)
 {
 	if (i == 4)
 	{
@@ -43,7 +43,7 @@ static void 	ft_iter_ttt(t_filler *p, int y, int x, int i)
 	}
 }
 
-static void 	ft_iter_rrr(t_filler *p, int y, int x, int i)
+static	void	ft_iter_rrr(t_filler *p, int y, int x, int i)
 {
 	if (i >= 0 && i <= 3)
 	{
@@ -72,7 +72,7 @@ static void 	ft_iter_rrr(t_filler *p, int y, int x, int i)
 		ft_iter_ttt(p, y, x, i);
 }
 
-static void 	ft_tjr_pls(int *d, int *y, int *x, int tour)
+static	void	ft_tjr_pls(int *d, int *y, int *x, int tour)
 {
 	if (*d >= (2 * *x))
 	{
@@ -92,7 +92,7 @@ static void 	ft_tjr_pls(int *d, int *y, int *x, int tour)
 	}
 }
 
-void 			ft_iter_ink(t_filler *p)
+void			ft_iter_ink(t_filler *p)
 {
 	static int x;
 	static int y;

@@ -6,13 +6,13 @@
 /*   By: jhamon <jhamon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/27 16:30:03 by jhamon            #+#    #+#             */
-/*   Updated: 2018/04/06 06:11:15 by jhamon           ###   ########.fr       */
+/*   Updated: 2018/05/06 14:34:30 by jhamon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "filler.h"
 
-static void	ft_psyko(t_filler *p, int y, int x, char line)
+static void		ft_psyko(t_filler *p, int y, int x, char line)
 {
 	static int i;
 	static int j;
