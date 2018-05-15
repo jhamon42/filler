@@ -6,7 +6,7 @@
 /*   By: jhamon <jhamon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/09 15:27:33 by jhamon            #+#    #+#             */
-/*   Updated: 2018/05/13 17:08:17 by jhamon           ###   ########.fr       */
+/*   Updated: 2018/05/15 18:11:20 by jhamon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,10 +41,10 @@ static void		ft_pars_map(t_visu *p)
 	p->tb_map[i][p->x_map] = '\0';
 }
 
-void		val_tab(t_visu *p)
+void			val_tab(t_visu *p)
 {
-	char *line;
-	int ok;
+	char	*line;
+	int		ok;
 
 	ok = 0;
 	while (get_next_line(0, &line) && ok == 0)

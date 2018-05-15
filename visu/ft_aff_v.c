@@ -6,27 +6,13 @@
 /*   By: jhamon <jhamon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/09 17:26:06 by jhamon            #+#    #+#             */
-/*   Updated: 2018/05/14 16:29:20 by jhamon           ###   ########.fr       */
+/*   Updated: 2018/05/15 18:17:20 by jhamon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "visu_filler.h"
 
-static void print_tab(FILE *fd, t_visu *p)
-{
-	int i;
-	int j;
-
-	i = -1;
-	while (++i < p->y_map)
-	{
-		j = -1;
-		while (++j < p->x_map)
-			fprintf(fd, "%c", p->tb_map[i][j]);
-		fprintf(fd, "\n");
-	}
-}
-static void ds_moi_mout(t_visu *p, int x, int y, int color)
+static void	ds_moi_mout(t_visu *p, int x, int y, int color)
 {
 	int i;
 	int j;
@@ -42,7 +28,7 @@ static void ds_moi_mout(t_visu *p, int x, int y, int color)
 	}
 }
 
-void			mlx_put_pixi(t_visu *p, int x, int y, int color)
+void		mlx_put_pixi(t_visu *p, int x, int y, int color)
 {
 	int		color1;
 	int		color2;
@@ -63,16 +49,10 @@ void			mlx_put_pixi(t_visu *p, int x, int y, int color)
 	p->data[y * p->sline + x * bit_pix + 2] = color3;
 }
 
-int				my_keys_events(int key, t_visu *p)
+int			my_keys_events(int key, t_visu *p)
 {
-	ft_printf("%d\n", key);
-	if (p)
-		;
 	if (key == 53)
-	{
-		fclose(p->fd);
 		exit(0);
-	}
 	if (key == 49)
 	{
 		if (p->pause == 0)
@@ -83,7 +63,7 @@ int				my_keys_events(int key, t_visu *p)
 	return (0);
 }
 
-void ft_aff_v(t_visu *p)
+void		ft_aff_v(t_visu *p)
 {
 	int i;
 	int j;
@@ -96,15 +76,17 @@ void ft_aff_v(t_visu *p)
 		while (++j < p->x_map)
 		{
 			if (p->tb_map[i][j] == 'O')
-				ds_moi_mout(p, (2 + p->var_x) * j + 2, (2 + p->var_y) * i + 2, 0x5FD813);
+				ds_moi_mout(p, (2 + p->var_x) * j + 2,
+				(2 + p->var_y) * i + 2, 0x5FD813);
 			else if (p->tb_map[i][j] == 'X')
-				ds_moi_mout(p, (2 + p->var_x) * j + 2, (2 + p->var_y) * i + 2, 0x8C13D8);
+				ds_moi_mout(p, (2 + p->var_x) * j + 2,
+				(2 + p->var_y) * i + 2, 0x8C13D8);
 			else if (p->tb_map[i][j] == 'o')
-				ds_moi_mout(p, (2 + p->var_x) * j + 2, (2 + p->var_y) * i + 2, 0xB7FF8A);
+				ds_moi_mout(p, (2 + p->var_x) * j + 2,
+				(2 + p->var_y) * i + 2, 0xB7FF8A);
 			else if (p->tb_map[i][j] == 'x')
-				ds_moi_mout(p, (2 + p->var_x) * j + 2, (2 + p->var_y) * i + 2, 0xD28AFF);
+				ds_moi_mout(p, (2 + p->var_x) * j + 2,
+				(2 + p->var_y) * i + 2, 0xD28AFF);
 		}
 	}
-	print_tab(p->fd, p);
-	fprintf(p->fd, "x_map ; %d, y_map : %d, var_x : %d, var_y : %d\n", p->x_map, p->y_map, p->var_x, p->var_y);
 }

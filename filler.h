@@ -6,7 +6,7 @@
 /*   By: jhamon <jhamon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/27 12:07:36 by jhamon            #+#    #+#             */
-/*   Updated: 2018/05/09 13:08:54 by jhamon           ###   ########.fr       */
+/*   Updated: 2018/05/15 18:02:55 by jhamon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,6 @@ typedef struct	s_filler
 	int			tour;
 	int			ink_i;
 	int			phase;
-	FILE		*fd_trace;
-	FILE		*fd_vm;
 }				t_filler;
 
 void			ft_parseur(char *line, t_filler *p);

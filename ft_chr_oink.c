@@ -6,35 +6,11 @@
 /*   By: jhamon <jhamon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/09 12:48:27 by jhamon            #+#    #+#             */
-/*   Updated: 2018/05/09 14:48:29 by jhamon           ###   ########.fr       */
+/*   Updated: 2018/05/15 18:08:10 by jhamon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "filler.h"
-
-// static void	ft_phaseur_ion(t_filler *p)
-// {
-// 	if (p->phase == 16)
-// 		p->phase = 1;
-// 	else if (p->phase == 1)
-// 		p->phase = 16;
-// 	else if (p->phase == 2)
-// 		p->phase = 15;
-// 	else if (p->phase == 15)
-// 		p->phase = 2;
-// }
-
-// static void	ft_phaseur_elec(t_filler *p)
-// {
-// 	if (p->phase == 15)
-// 		p->phase = -1;
-// 	else if (p->phase == 16)
-// 		p->phase = 100;
-// 	else if (p->phase == 2)
-// 		p->phase = -16;
-// 	else if (p->phase == 1)
-// 		p->phase = -15;
-// }
 
 static int	ft_awesome_rchr(t_filler *p, char c)
 {

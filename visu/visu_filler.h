@@ -6,7 +6,7 @@
 /*   By: jhamon <jhamon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/09 15:28:24 by jhamon            #+#    #+#             */
-/*   Updated: 2018/05/14 16:04:24 by jhamon           ###   ########.fr       */
+/*   Updated: 2018/05/15 18:16:00 by jhamon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,13 +41,12 @@ typedef struct		s_visu
 	int				defwin_y;
 	int				defwin_x;
 	int				pause;
-	FILE 			*fd;
-} 					t_visu;
+}					t_visu;
 
 void				val_tab(t_visu *p);
 void				ft_free_tb_v(char **tb);
 void				ft_rec_v(t_visu *p);
-void 				ft_aff_v(t_visu *p);
+void				ft_aff_v(t_visu *p);
 int					my_keys_events(int key, t_visu *p);
 void				mlx_put_pixi(t_visu *p, int x, int y, int color);
 

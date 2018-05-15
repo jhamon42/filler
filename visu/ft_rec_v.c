@@ -6,7 +6,7 @@
 /*   By: jhamon <jhamon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/09 17:12:30 by jhamon            #+#    #+#             */
-/*   Updated: 2018/05/13 19:03:51 by jhamon           ###   ########.fr       */
+/*   Updated: 2018/05/15 18:12:11 by jhamon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ static void		ft_map_rec(char *line, t_visu *p, int i_map)
 
 void			ft_rec_v(t_visu *p)
 {
-	static int i_map;
-	char *line;
+	static int	i_map;
+	char		*line;
 
 	while (get_next_line(0, &line))
 	{
@@ -42,7 +42,7 @@ void			ft_rec_v(t_visu *p)
 				ft_map_rec(line, p, i_map);
 				i_map = 0;
 				p->ok = 0;
-				break;
+				break ;
 			}
 			else
 				ft_map_rec(line, p, i_map++);

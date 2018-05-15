@@ -6,7 +6,7 @@
 /*   By: jhamon <jhamon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/09 15:04:30 by jhamon            #+#    #+#             */
-/*   Updated: 2018/05/14 16:14:59 by jhamon           ###   ########.fr       */
+/*   Updated: 2018/05/15 18:16:24 by jhamon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ static void		s_visu_init(t_visu *p)
 	p->y_map = 0;
 	p->x_map = 0;
 	p->tb_map = NULL;
-	p->fd = fopen("recup.txt", "w");
 }
 
 static void		ft_init_xy(t_visu *p)
@@ -50,8 +49,7 @@ static void		ft_init_img(t_visu *p)
 											&p->sline, &p->endian);
 }
 
-
-int			loophere(t_visu *p)
+int				loophere(t_visu *p)
 {
 	mlx_destroy_image(p->mlx, p->img);
 	p->img = mlx_new_image(p->mlx, p->defwin_x, p->defwin_y);
@@ -66,7 +64,7 @@ int			loophere(t_visu *p)
 	return (0);
 }
 
-int main(void)
+int				main(void)
 {
 	t_visu	visu;
 	t_visu	*p;

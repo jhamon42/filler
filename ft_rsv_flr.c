@@ -6,7 +6,7 @@
 /*   By: jhamon <jhamon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/29 11:39:04 by jhamon            #+#    #+#             */
-/*   Updated: 2018/05/09 14:08:31 by jhamon           ###   ########.fr       */
+/*   Updated: 2018/05/15 19:48:50 by jhamon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ void			ft_rsv_flr(t_filler *p)
 	p->ink_i = 0;
 	while (a != 0)
 	{
-		if (p->y_ply <= -(p->y_map) && p->x_ply <= -(p->x_map))
+		if (p->y_ply <= -(p->y_map * 2) && p->x_ply <= -(p->x_map * 2))
 		{
-			ft_printf("%d %d\n", p->y_ply, p->x_ply);
+			ft_printf("0 0\n");
 			a = 0;
 		}
 		if (ft_vrf_plac(p))

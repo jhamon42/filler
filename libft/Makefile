@@ -6,15 +6,19 @@
 #    By: jhamon <jhamon@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/16 16:45:22 by jhamon            #+#    #+#              #
-#    Updated: 2018/03/30 02:48:18 by jhamon           ###   ########.fr        #
+#    Updated: 2018/05/15 17:56:02 by jhamon           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 
+AUTEUR = jhamon
+
 CC = gcc
+
 FLAG = -Wall -Werror -Wextra
-G3 = -fno-sanitize=all -g3
+G3 = -fsanitize=address -g3
+
 OBJ = $(SRC:.c=.o)
 SRC = 	get_next_line.c	ft_memalloc.c 	ft_memdel.c 	ft_strnew.c 	ft_strdel.c \
 		ft_strclr.c 	ft_striter.c 	ft_striteri.c 	ft_strmap.c 	ft_strmapi.c \
@@ -33,21 +37,62 @@ SRC = 	get_next_line.c	ft_memalloc.c 	ft_memdel.c 	ft_strnew.c 	ft_strdel.c \
 		ft_printf_p.c 	ft_put_wchar.c 	ft_strupper.c 	ft_charnumb.c 	ft_printf_pc.c \
 		ft_resetprset.c	ft_color.c 		ft_printf_b.c 	ft_memdel_zero.c ft_strchr_int.c \
 
+# Utile
+_END=tput sgr0
+_BOLD=tput bold
+_UNDER=tput smul
+_REV=tput smso
+_DAFUK=tput smacs
+
+# Colors
+_GREY=tput setaf 250
+_RED=tput setaf 160
+_GREEN=tput setaf 10
+_YELLOW=tput setaf 11
+_BLUE=tput setaf 27
+_PURPLE=tput setaf 92
+_CYAN=tput setaf 50
+_WHITE=tput setaf 255
+
+# Inverted
+_IGREY=tput setab 250
+_IRED=tput setab 160
+_IGREEN=tput setab 10
+_IYELLOW=tput setab 11
+_IBLUE=tput setab 27
+_IPURPLE=tput setab 92
+_ICYAN=tput setab 50
+_IWHITE=tput setab 255
+
 define OK
-	@tput setaf 254
-	@echo -n $1
-	@tput bold setaf 10
-	@echo ' 	[Ok]'
-	@tput sgr0
+	@$(call _GREEN) && printf "[Ok]	"
+	@$(call _UNDER)
+	@$(call _YELLOW) && printf "$1\n"
+	@$(call _END)
 endef
 
 define FOK
-	@echo ''
-	@tput setaf 50
-	@echo -n $(NAME)
-	@tput  bold setaf 10
-	@echo ' [Compiled]'
-	@tput sgr0
+	@$(call _GREEN) && printf "\n[Compiled]	"
+	@$(call _CYAN) && printf "$(NAME)\n"
+	@$(call _END)
+endef
+
+define CLNOK
+	@$(call _GREEN) && printf "[clean]	"
+	@$(call _GREY) && printf "$1\n"
+	@$(call _END)
+endef
+
+define CLNOBJOK
+	@$(call _GREEN) && printf "[clean]	"
+	@$(call _GREY) && printf "Obj_$(NAME)\n"
+	@$(call _END)
+endef
+
+define BULSHIT
+	@$(call _PURPLE) && printf "auteur :	"
+	@$(call _RED) && printf "$(AUTEUR)\n"
+	@$(call _END)
 endef
 
 all : $(NAME)
@@ -56,45 +101,33 @@ all : $(NAME)
 $(NAME) : $(OBJ)
 	@$(CC) -c $(SRC) $(FLAG)
 	@ar -rc $(NAME) $(OBJ)
-ifndef SLEEP
-	$(call FOK, $*)
-endif
+	@make auteur
+	$(call FOK)
 
-silence :
-	@make SLEEP=1
+%.o: %.c
+	@$(CC) -c $(FLAG) $< -o $@
+	$(call OK,$*)
+
+clean :
+	@rm -rf $(OBJ)
+	$(call CLNOBJOK,$(OBJ))
+
+fclean : clean
+	@rm -rf $(NAME) auteur
+	$(call CLNOK,$(NAME))
+
+re : fclean all
 
 force :
 	@$(CC) -c $(SRC)
 	@ar -rc $(NAME) $(OBJ)
-	$(call FOK, $*)
 
 debug : $(OBJ)
 	@$(CC) -c $(SRC) $(G3)
 	@ar -rc $(NAME) $(OBJ)
 
-%.o: %.c
-	@$(CC) -c $(FLAG) $< -o $@
-ifndef SLEEP
-	$(call OK, $*)
-endif
+auteur :
+	@touch $@ && echo $(AUTEUR) > $@
+	$(call BULSHIT,$(AUTEUR))
 
-clean :
-	@rm -rf $(OBJ)
-	@tput setaf 50
-	@echo -n 'Obj'
-	@tput setaf 10
-	@echo ' 	clean success'
-	@tput sgr0
-
-fclean : clean
-	@rm -rf $(NAME)
-	@tput setaf 50
-	@echo -n $(NAME)
-	@tput setaf 10
-	@echo ' clean success'
-	@tput sgr0
-
-re : fclean all
-
-
-.PHONY : all clean fclean re force
+.PHONY : all clean fclean re force debug auteur
