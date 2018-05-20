@@ -6,7 +6,7 @@
 #    By: jhamon <jhamon@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/16 16:45:22 by jhamon            #+#    #+#              #
-#    Updated: 2018/05/15 17:56:02 by jhamon           ###   ########.fr        #
+#    Updated: 2018/05/20 00:51:46 by jhamon           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -129,5 +129,8 @@ debug : $(OBJ)
 auteur :
 	@touch $@ && echo $(AUTEUR) > $@
 	$(call BULSHIT,$(AUTEUR))
+
+norme :
+	@norminette $(SRC)
 
 .PHONY : all clean fclean re force debug auteur

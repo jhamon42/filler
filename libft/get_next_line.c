@@ -6,7 +6,7 @@
 /*   By: jhamon <jhamon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/14 06:19:41 by jhamon            #+#    #+#             */
-/*   Updated: 2018/03/08 16:00:34 by jhamon           ###   ########.fr       */
+/*   Updated: 2018/05/18 18:49:50 by jhamon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,7 @@ int			get_next_line(const int fd, char **line)
 {
 	static char	**str;
 	int			i;
+	char		*freeman;
 
 	i = 0;
 	if (fd < 0 || !line || fd > OPEN_MAX || BUFF_SIZE < 0)
@@ -93,7 +94,9 @@ int			get_next_line(const int fd, char **line)
 	*line = ft_strsub(str[fd], 0, i);
 	if (str[fd][i] == '\n')
 	{
+		freeman = str[fd];
 		str[fd] = ft_strsub(str[fd], i + 1, (ft_strlen(str[fd]) - i));
+		free(freeman);
 		return (1);
 	}
 	return (ft_resolve(fd, line, str));

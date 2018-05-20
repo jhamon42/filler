@@ -6,7 +6,7 @@
 /*   By: jhamon <jhamon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/27 12:07:36 by jhamon            #+#    #+#             */
-/*   Updated: 2018/05/15 18:02:55 by jhamon           ###   ########.fr       */
+/*   Updated: 2018/05/20 01:16:46 by jhamon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,14 +49,14 @@ typedef struct	s_filler
 void			ft_parseur(char *line, t_filler *p);
 void			ft_rec_tb(char *line, t_filler *p);
 void			ft_rsv_flr(t_filler *p);
-void			ft_free_tb(char **tb);
+void			ft_free_tb(char **tb, int a);
 void			ft_chr_ink(t_filler *p);
 void			ft_chr_oink(t_filler *p);
 int				ft_vrf_plac(t_filler *p);
 void			ft_iter_ink(t_filler *p);
 void			ft_hercul(t_filler *p);
 int				ft_cas_prt(t_filler *p, char c);
-int				ft_wall_check(t_filler *p);
+int				ft_wall_check(t_filler *p, int a);
 int				ft_cas_val(t_filler *p, char c);
 
 #endif

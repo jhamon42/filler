@@ -6,7 +6,7 @@
 /*   By: jhamon <jhamon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/09 17:26:06 by jhamon            #+#    #+#             */
-/*   Updated: 2018/05/15 18:17:20 by jhamon           ###   ########.fr       */
+/*   Updated: 2018/05/15 20:58:57 by jhamon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,7 @@ static void	ds_moi_mout(t_visu *p, int x, int y, int color)
 	{
 		j = -1;
 		while (++j < p->var_x)
-		{
 			mlx_put_pixi(p, (x + j), (y + i), color);
-		}
 	}
 }
 

@@ -6,7 +6,7 @@
 /*   By: jhamon <jhamon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/06 05:19:39 by jhamon            #+#    #+#             */
-/*   Updated: 2018/05/07 12:24:07 by jhamon           ###   ########.fr       */
+/*   Updated: 2018/05/18 20:27:30 by jhamon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,12 +70,12 @@ int		ft_cas_val(t_filler *p, char c)
 	return (0);
 }
 
-int		ft_wall_check(t_filler *p)
+int		ft_wall_check(t_filler *p, int a)
 {
 	int i;
 
 	i = -1;
-	if (p->phase == 1 || p->phase == -1)
+	if (a == 1)
 	{
 		while (++i < p->y_map - 1)
 		{

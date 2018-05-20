@@ -6,11 +6,11 @@
 #    By: jhamon <jhamon@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/03/08 14:53:08 by jhamon            #+#    #+#              #
-#    Updated: 2018/05/20 00:52:34 by jhamon           ###   ########.fr        #
+#    Updated: 2018/05/20 00:51:58 by jhamon           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = jhamon.filler
+NAME = gen_map
 
 AUTEUR = jhamon
 
@@ -20,11 +20,10 @@ FLAG = -Wall -Werror -Wextra
 G3 = -fsanitize=address -g3
 
 OBJ = $(SRC:.c=.o)
-SRC = 	main.c ft_chr_oink.c ft_cas_prt.c ft_hercul.c ft_parseur.c ft_rec_tb.c \
-		ft_vrf_plac.c ft_rsv_flr.c ft_chr_ink.c ft_iter_ink.c \
+SRC = 	main.c ft_write.c
 
-LIB = -L libft -lft
-INC = -I libft/
+LIB = -L ../libft -lft
+INC = -I ../libft/
 
 # Utile
 _END=tput sgr0
@@ -88,7 +87,7 @@ all : $(NAME)
 	@:
 
 $(NAME) : $(OBJ)
-	@make -C libft && make -C visu && make -C gen_map
+	@make -C ../libft
 	@$(CC) -o $@ $(SRC) $(LIB) $(FLAG)
 	@make auteur
 	$(call FOK)
@@ -99,35 +98,30 @@ $(NAME) : $(OBJ)
 	$(call OK,$*)
 
 clean :
-	@make -C libft clean && make -C visu clean && make -C gen_map clean
+	@make -C ../libft clean
 	@rm -rf $(OBJ)
 	$(call CLNOBJOK,$(OBJ))
 
 fclean : clean
-	@make -C libft fclean && make -C visu fclean && make -C gen_map fclean
-	@rm -rf $(NAME) auteur traceur
+	@make -C ../libft fclean
+	@rm -rf $(NAME) auteur map_custom
 	$(call CLNOK,$(NAME))
 
 re : fclean all
 
 force :
-	@make -C libft && make -C visu
+	@make -C ../libft
 	@$(CC) -o $(NAME) $(SRC) $(LIB)
 
 debug : $(OBJ)
-	@make -C libft && make -C visu
+	@make -C ../libft
 	@$(CC) -o $(NAME) $(SRC) $(LIB) $(G3)
-
-traceur :
-	@make -C libft
-	@$(CC) -o traceur check.c $(FLAG) $(LIB)
 
 auteur :
 	@touch $@ && echo $(AUTEUR) > $@
 	$(call BULSHIT,$(AUTEUR))
 
 norme :
-	@make -C libft norme && make -C visu norme && make -C gen_map norme
-	@norminette $(SRC) check.c
+	@norminette $(SRC)
 
-.PHONY : all clean fclean re force debug auteur traceur
+.PHONY : all clean fclean re force debug auteur

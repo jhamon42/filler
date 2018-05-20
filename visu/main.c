@@ -6,7 +6,7 @@
 /*   By: jhamon <jhamon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/09 15:04:30 by jhamon            #+#    #+#             */
-/*   Updated: 2018/05/15 18:16:24 by jhamon           ###   ########.fr       */
+/*   Updated: 2018/05/20 02:29:35 by jhamon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ static void		s_visu_init(t_visu *p)
 	p->y_map = 0;
 	p->x_map = 0;
 	p->tb_map = NULL;
+	p->pause = 0;
 }
 
 static void		ft_init_xy(t_visu *p)
@@ -27,13 +28,11 @@ static void		ft_init_xy(t_visu *p)
 	p->var_x = 50;
 	if ((p->defwin_x = (p->x_map * 52) + 2) > 1900)
 	{
-		printf("ok\n");
 		p->var_x = (1900 - (p->x_map * 2 + 2)) / p->x_map;
 		p->defwin_x = ((p->x_map * (p->var_x + 2)) + 2);
 	}
 	if ((p->defwin_y = (p->y_map * 52) + 2) > 1050)
 	{
-		printf("ok\n");
 		p->var_y = (1050 - (p->y_map * 2 + 2)) / p->y_map;
 		p->defwin_y = ((p->y_map * (p->var_y + 2)) + 2);
 	}
@@ -43,13 +42,13 @@ static void		ft_init_img(t_visu *p)
 {
 	p->mlx = mlx_init();
 	ft_init_xy(p);
-	p->win = mlx_new_window(p->mlx, p->defwin_x, p->defwin_y, "fdf");
+	p->win = mlx_new_window(p->mlx, p->defwin_x, p->defwin_y, "visu filler");
 	p->img = mlx_new_image(p->mlx, p->defwin_x, p->defwin_y);
 	p->data = (unsigned char *)mlx_get_data_addr(p->img, &p->bpp, \
 											&p->sline, &p->endian);
 }
 
-int				loophere(t_visu *p)
+static int		loophere(t_visu *p)
 {
 	mlx_destroy_image(p->mlx, p->img);
 	p->img = mlx_new_image(p->mlx, p->defwin_x, p->defwin_y);

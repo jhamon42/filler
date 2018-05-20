@@ -6,7 +6,7 @@
 /*   By: jhamon <jhamon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/30 21:07:41 by jhamon            #+#    #+#             */
-/*   Updated: 2018/05/09 14:48:11 by jhamon           ###   ########.fr       */
+/*   Updated: 2018/05/20 01:08:49 by jhamon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,8 +56,8 @@ void		ft_hercul(t_filler *p)
 	}
 	else if (p->phase == 3)
 	{
-		p->y_ink = (p->y_map / 4);
-		p->x_ink = p->x_ini_me;
+		p->y_ink = 0;
+		p->x_ink = p->x_map / 2;
 	}
 	else
 		ft_hydre(p);

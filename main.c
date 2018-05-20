@@ -6,7 +6,7 @@
 /*   By: jhamon <jhamon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/08 14:53:08 by jhamon            #+#    #+#             */
-/*   Updated: 2018/05/07 15:59:11 by jhamon           ###   ########.fr       */
+/*   Updated: 2018/05/20 01:16:52 by jhamon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,13 +49,11 @@ int				main(void)
 		if (p->rec == 3)
 		{
 			ft_rsv_flr(p);
-			p->vue_prs = 0;
 			p->rec = 0;
 		}
+		free(line);
 	}
-	if (p->tb_map)
-		ft_free_tb(p->tb_map);
-	if (p->tb_pce)
-		ft_free_tb(p->tb_pce);
+	ft_free_tb(p->tb_map, p->y_map);
+	ft_free_tb(p->tb_pce, p->y_pce);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: jhamon <jhamon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/09 17:12:30 by jhamon            #+#    #+#             */
-/*   Updated: 2018/05/15 18:12:11 by jhamon           ###   ########.fr       */
+/*   Updated: 2018/05/18 18:42:53 by jhamon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ void			ft_rec_v(t_visu *p)
 				ft_map_rec(line, p, i_map);
 				i_map = 0;
 				p->ok = 0;
+				free(line);
 				break ;
 			}
 			else
@@ -49,5 +50,6 @@ void			ft_rec_v(t_visu *p)
 		}
 		else if (ft_strnequ("    ", line, 4))
 			p->ok = 1;
+		free(line);
 	}
 }

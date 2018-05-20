@@ -6,7 +6,7 @@
 /*   By: jhamon <jhamon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/09 12:48:27 by jhamon            #+#    #+#             */
-/*   Updated: 2018/05/15 18:08:10 by jhamon           ###   ########.fr       */
+/*   Updated: 2018/05/18 20:26:30 by jhamon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ static int	ft_awesome_rchr(t_filler *p, char c)
 	int f;
 
 	f = p->phase;
-	if (f == 2 || f == 1 || f == -1 || f == -2)
-		return (ft_wall_check(p));
+	if (ft_wall_check(p, 1))
+		return (ft_wall_check(p, 2));
 	if (p->tb_map[p->y_ink][p->x_ink] == c)
 		return (1);
 	if (f == 15 || f == -15 || f == 16 || f == -16)

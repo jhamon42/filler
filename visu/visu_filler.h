@@ -6,7 +6,7 @@
 /*   By: jhamon <jhamon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/09 15:28:24 by jhamon            #+#    #+#             */
-/*   Updated: 2018/05/15 18:16:00 by jhamon           ###   ########.fr       */
+/*   Updated: 2018/05/20 02:21:54 by jhamon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,9 @@
 # include <stdio.h>
 # include <math.h>
 
-# define ERROR_P ft_printf("{red}ERROR PCE : piece invalide{eoc}")
-# define ERROR_M ft_printf("{red}ERROR MAP : map invalide{eoc}")
+# define ERROR_P ft_printf("{red}ERROR PCE : piece invalide{eoc}\n")
+# define ERROR_M ft_printf("{red}ERROR MAP : map invalide{eoc}\n")
+# define ERROR_V ft_printf("{red}ERROR VM : Use filler_vm by Hcao{eoc}\n")
 
 typedef struct		s_visu
 {
